@@ -1,15 +1,675 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1>Hello, I'm Your Name</h1>
-  <p>I'm a [Your Role] based in [Location]</p>
-  <!-- Add your projects, links, contact info etc -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sachira Nuwanga Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fafafa;
+        color: #333;
+      }
+      header {
+        background-color: #1e2a3a;
+        color: white;
+        text-align: center;
+        padding: 1rem 1rem;
+        position: relative;
+      }
+      .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .profile-img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid #3498db;
+        transition: transform 0.3s ease;
+      }
+      .profile-img:hover {
+        transform: scale(1.1);
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      .title {
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: #ecf0f1;
+      }
+      .linkedin-link {
+        font-size: 1.1rem;
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+      .linkedin-link:hover {
+        color: #1abc9c;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        background-color: #34495e;
+        padding: 1.5rem;
+      }
+      nav a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.1rem;
+        position: relative;
+        padding: 0.5rem;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #3498db;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      nav a:hover {
+        color: #3498db;
+      }
+      #profile p {
+        text-align: justify;
+      }
+      section {
+        padding: 3rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+        border-radius: 8px;
+      }
+      h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      li {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+      .project a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      .project a:hover {
+        text-decoration: underline;
+      }
+      .contact-info a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        background-color: #1e2a3a;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1rem;
+        margin-top: 2rem;
+      }
+      #experience {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
+      #experience h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      #experience ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .experience-item {
+        margin-bottom: 2rem;
+      }
+      .experience-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #333;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        display: block;
+      }
+      .experience-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 3px;
+        background-color: #3498db;
+        transition: transform 0.3s ease;
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .experience-item ul {
+        margin-top: 0.5rem;
+        padding-left: 1.5rem;
+      }
+      .experience-item ul li {
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        color: #555;
+      }
+      .experience-item strong + ul {
+        margin-top: 0.75rem;
+      }
+      .experience-item strong {
+        display: block;
+        margin-top: 0.5rem;
+      }
+      .experience-item {
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border-radius: 6px;
+        border-left: 4px solid #3498db;
+        transition: transform 0.3s ease;
+      }
+      .experience-item:hover {
+        transform: translateX(10px);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+      #skills {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
+      #skills h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .chip-category {
+        margin-bottom: 2rem;
+      }
+      .category-title {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .chip-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .chip {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 25px;
+        text-align: center;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .chip:hover {
+        background-color: #2980b9;
+        transform: scale(1.1);
+      }
+      .chip:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+      }
+      #projects {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
+      #projects h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .project-item {
+        margin-bottom: 1.5rem;
+      }
+      .project-item strong {
+        font-size: 1.1rem;
+        color: #333;
+      }
+      .project-item p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+      }
+      .project-item a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      .project-item a:hover {
+        text-decoration: underline;
+      }
+      #education {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
+      #education h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .education-item {
+        margin-bottom: 1.2rem;
+      }
+      .education-item strong {
+        font-size: 1.2rem;
+        color: #333;
+      }
+      .education-item p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+      }
+      .certifications {
+        margin-top: 1rem;
+      }
+      .certifications strong {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: #333;
+      }
+      .certifications ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .certifications li {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0.6rem;
+      }
+      #contact {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+      }
+      #contact h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .contact-info p {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+      .contact-info a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <img src="profile.jpg" alt="Sachira Nuwanga" class="profile-img" />
+        <h1>Sachira Nuwanga</h1>
+        <p class="title">Senior Software Engineer</p>
+        <a
+          href="https://www.linkedin.com/in/sachira-nuwanga/"
+          target="_blank"
+          class="linkedin-link"
+        >
+          View my LinkedIn profile
+        </a>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#profile">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="profile">
+      <h2>Professional Profile</h2>
+      <p>
+        I am a seasoned Frontend Software Engineer with a strong aptitude for
+        problem-solving. My expertise spans multiple technology stacks,
+        including React, Next Js, Flutter, and Node.js. I have extensive
+        hands-on experience with React and Next Js, having worked with it for
+        over six years. Additionally, I possess in-depth knowledge of cloud
+        platforms such as Azure DevOps, Google Cloud Platform (GCP), and
+        Firebase, which I frequently utilize in my projects. My professional
+        background encompasses a broad range of skills, from web and mobile
+        application development to server-side application development. My
+        passion for coding drives me to deliver excellence in every task I
+        undertake, ensuring high-quality results that meet and exceed
+        expectations.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul>
+        <li class="experience-item">
+          <strong class="experience-title"
+            >Fixico / Gapstars – Senior Software Engineer (Sep 2023 –
+            Present)</strong
+          ><br />
+          <ul>
+            <li>
+              &bull; Working on multiple Next.js applications related to vehicle
+              damage report creation and tracking.
+            </li>
+            <li>
+              &bull; Developed applications for various business processes such
+              as customer, garage, partner, and moderator.
+            </li>
+            <li>
+              &bull; Introduced Storybook and UI library to create and reuse
+              common components across applications.
+            </li>
+            <li>
+              &bull; Replaced old authentication flows and implemented NextAuth
+              for authentication using multiple providers.
+            </li>
+            <li>&bull; Utilized MUI as the main component library.</li>
+            <li>
+              &bull; Integrated Segment and Sentry for activity tracking and
+              monitoring.
+            </li>
+            <li>
+              &bull; Utilized GCP, Docker, and Kubernetes for deployment and
+              infrastructure.
+            </li>
+            <li>
+              &bull; Implemented CircleCI and ArgoCD for continuous integration
+              and deployment.
+            </li>
+          </ul>
+          <strong>Technologies:</strong> NextJs, GCP, Kubernetes, PHP Laravel,
+          SQL
+        </li>
+        <li class="experience-item">
+          <strong class="experience-title"
+            >Zone24x7 – Senior Software Engineer (Oct 2021 – Sep 2023)</strong
+          ><br />
+          <ul>
+            <li>
+              &bull; Worked on a React application for document management as a
+              frontend engineer.
+            </li>
+            <li>
+              &bull; Provided solutions with Proof of Concepts (POCs) to address
+              various issues.
+            </li>
+            <li>&bull; Contributed to CI/CD tasks on Azure DevOps.</li>
+            <li>
+              &bull; Used Ant Design component library with custom wrapped
+              styles.
+            </li>
+            <li>&bull; Employed Redux and RTK for state management.</li>
+            <li>
+              &bull; Worked with TypeScript as the primary language for React.
+            </li>
+            <li>
+              &bull; Utilized Jest, Enzyme, and React Testing Library for unit
+              testing.
+            </li>
+          </ul>
+          <strong>Technologies:</strong> Reactjs, Azure, .net, C#, SQL
+        </li>
+        <li class="experience-item">
+          <strong class="experience-title"
+            >IFS R&D International (Pvt) Ltd – Intern Software Engineer (Nov
+            2019 – Apr 2020)</strong
+          ><br />
+          <ul>
+            <li>&bull; Applied bug fixing and developed IFS Applications</li>
+            <li>&bull; Implemented user stories as part of Agile processes</li>
+          </ul>
+          <strong>Technologies:</strong> VB.net, C#, PLSQL
+        </li>
+        <li class="experience-item">
+          <strong class="experience-title"
+            >Amsafe Bridport – Software Developer (Nov 2018 – Feb 2019)</strong
+          ><br />
+          <ul>
+            <li>
+              &bull; Coordinated design, development, and implementation of
+              software applications according to user requirements
+            </li>
+            <li>
+              &bull; Implemented a new Intranet system for Amsafe Bridport
+              worldwide and developed applications in the intranet portal
+            </li>
+          </ul>
+          <strong>Technologies:</strong> VB.net, C#.net, JavaScript, SQL, SSRS,
+          HTML
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Technologies</h2>
+      <div class="chip-category">
+        <span class="category-title">Frontend</span>
+        <div class="chip-container">
+          <span class="chip">React.js</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">Flutter</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">Tailwind CSS</span>
+          <span class="chip">Redux</span>
+          <span class="chip">RTK</span>
+        </div>
+      </div>
+
+      <div class="chip-category">
+        <span class="category-title">Backend</span>
+        <div class="chip-container">
+          <span class="chip">Node.js</span>
+          <span class="chip">Express.js</span>
+          <span class="chip">Firebase Functions</span>
+          <span class="chip">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="chip-category">
+        <span class="category-title">Languages</span>
+        <div class="chip-container">
+          <span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Dart</span>
+          <span class="chip">Java</span>
+          <span class="chip">C#</span>
+          <span class="chip">Python</span>
+        </div>
+      </div>
+
+      <div class="chip-category">
+        <span class="category-title">Testing</span>
+        <div class="chip-container">
+          <span class="chip">Jest</span>
+          <span class="chip">React Testing Library</span>
+          <span class="chip">Cypress</span>
+        </div>
+      </div>
+
+      <div class="chip-category">
+        <span class="category-title">DevOps & Tools</span>
+        <div class="chip-container">
+          <span class="chip">Azure DevOps</span>
+          <span class="chip">CircleCI</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">GCP</span>
+          <span class="chip">Firebase</span>
+          <span class="chip">Git</span>
+          <span class="chip">GitHub Actions</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <div class="project-item">
+          <strong>Beautesoft CRM</strong>
+          <p>
+            Complete CRM solution for beauty salons, built with React, Firebase,
+            and Flutter for mobile.
+          </p>
+        </div>
+        <div class="project-item">
+          <strong>File and Event Manager</strong>
+          <p>
+            Event logging and file organization utility –
+            <a
+              href="https://github.com/pyrecyter/File-and-Drive-Manager"
+              target="_blank"
+              >GitHub</a
+            >
+          </p>
+        </div>
+        <div class="project-item">
+          <strong>Medibuzz</strong>
+          <p>
+            A medicine reminder app with scheduling and notification –
+            <a href="https://github.com/pyrecyter/Medibuzz" target="_blank"
+              >GitHub</a
+            >
+          </p>
+        </div>
+        <div class="project-item">
+          <strong>Vehicle Damage Reporting System</strong>
+          <p>Internal reporting tool for auto repair shops.</p>
+        </div>
+        <div class="project-item">
+          <strong>Locus</strong>
+          <p>Location-based task reminder built with Flutter.</p>
+        </div>
+        <div class="project-item">
+          <strong>Online Air Tickets Reservation System</strong>
+          <p>Developed a website for online air ticket reservations.</p>
+        </div>
+        <div class="project-item">
+          <strong>Online Computer Store</strong>
+          <p>Web application for an online computer store.</p>
+        </div>
+        <div class="project-item">
+          <strong>Android Game "Convita"</strong>
+          <p>Android game developed using Android Studio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education & Certifications</h2>
+      <div class="education-item">
+        <strong>Sri Sumangala College</strong>
+        <p>Completed O/Ls and A/L with Maths Stream</p>
+      </div>
+      <div class="education-item">
+        <strong
+          >Sri Lanka Institute of Information Technology (SLIIT)
+          (2017–2021)</strong
+        >
+        <p>
+          B.Sc. (Hons) in Information Technology – Specialization in Software
+          Engineering
+        </p>
+      </div>
+      <div class="certifications">
+        <strong>Certifications & Awards:</strong>
+        <ul>
+          <li>&bull; Silver Award – SLIIT Codefest 2019</li>
+          <li>&bull; Dean's List Award – Final Year</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:sachiranuwanga123@gmail.com"
+            >sachiranuwanga123@gmail.com</a
+          >
+        </p>
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/pyrecyter" target="_blank">pyrecyter</a>
+        </p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/sachira-nuwanga/" target="_blank"
+            >LinkedIn Profile</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Sachira Nuwanga</p>
+    </footer>
+  </body>
 </html>
