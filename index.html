@@ -1,675 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sachira Nuwanga Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: #fafafa;
-        color: #333;
-      }
-      header {
-        background-color: #1e2a3a;
-        color: white;
-        text-align: center;
-        padding: 1rem 1rem;
-        position: relative;
-      }
-      .header-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 1rem;
-      }
-      .profile-img {
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        margin-bottom: 1rem;
-        border: 3px solid #3498db;
-        transition: transform 0.3s ease;
-      }
-      .profile-img:hover {
-        transform: scale(1.1);
-      }
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
-        font-weight: 700;
-      }
-      .title {
-        font-size: 1.3rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
-        color: #ecf0f1;
-      }
-      .linkedin-link {
-        font-size: 1.1rem;
-        color: #3498db;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-      .linkedin-link:hover {
-        color: #1abc9c;
-      }
-      nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        background-color: #34495e;
-        padding: 1.5rem;
-      }
-      nav a {
-        color: white;
-        font-weight: 600;
-        text-decoration: none;
-        font-size: 1.1rem;
-        position: relative;
-        padding: 0.5rem;
-      }
-      nav a::after {
-        content: "";
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        background-color: #3498db;
-        bottom: -5px;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: width 0.3s ease;
-      }
-      nav a:hover::after {
-        width: 100%;
-      }
-      nav a:hover {
-        color: #3498db;
-      }
-      #profile p {
-        text-align: justify;
-      }
-      section {
-        padding: 3rem 2rem;
-        max-width: 1000px;
-        margin: auto;
-        background-color: #ffffff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 2rem;
-        border-radius: 8px;
-      }
-      h2 {
-        font-size: 2rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      ul {
-        list-style: none;
-        padding-left: 0;
-      }
-      li {
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
-      }
-      .project a {
-        color: #3498db;
-        text-decoration: none;
-      }
-      .project a:hover {
-        text-decoration: underline;
-      }
-      .contact-info a {
-        color: #3498db;
-        text-decoration: none;
-      }
-      .contact-info a:hover {
-        text-decoration: underline;
-      }
-      footer {
-        background-color: #1e2a3a;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        font-size: 1rem;
-        margin-top: 2rem;
-      }
-      #experience {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 2rem;
-      }
-      #experience h2 {
-        font-size: 2rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      #experience ul {
-        list-style: none;
-        padding-left: 0;
-      }
-      .experience-item {
-        margin-bottom: 2rem;
-      }
-      .experience-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #333;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1rem;
-        position: relative;
-        display: block;
-      }
-      .experience-title::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 100%;
-        height: 3px;
-        background-color: #3498db;
-        transition: transform 0.3s ease;
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-      .experience-item ul {
-        margin-top: 0.5rem;
-        padding-left: 1.5rem;
-      }
-      .experience-item ul li {
-        margin-bottom: 0.75rem;
-        font-size: 1.1rem;
-        color: #555;
-      }
-      .experience-item strong + ul {
-        margin-top: 0.75rem;
-      }
-      .experience-item strong {
-        display: block;
-        margin-top: 0.5rem;
-      }
-      .experience-item {
-        padding: 1rem;
-        background-color: #f9f9f9;
-        border-radius: 6px;
-        border-left: 4px solid #3498db;
-        transition: transform 0.3s ease;
-      }
-      .experience-item:hover {
-        transform: translateX(10px);
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-      }
-      #skills {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 2rem;
-      }
-      #skills h2 {
-        font-size: 2rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      .chip-category {
-        margin-bottom: 2rem;
-      }
-      .category-title {
-        font-weight: 600;
-        font-size: 1.2rem;
-        color: #333;
-        margin-bottom: 0.5rem;
-        display: block;
-      }
-      .chip-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-      }
-      .chip {
-        display: inline-block;
-        background-color: #3498db;
-        color: white;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        border-radius: 25px;
-        text-align: center;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-      .chip:hover {
-        background-color: #2980b9;
-        transform: scale(1.1);
-      }
-      .chip:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
-      }
-      #projects {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 2rem;
-      }
-      #projects h2 {
-        font-size: 2rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      .project-item {
-        margin-bottom: 1.5rem;
-      }
-      .project-item strong {
-        font-size: 1.1rem;
-        color: #333;
-      }
-      .project-item p {
-        font-size: 1rem;
-        color: #666;
-        line-height: 1.6;
-      }
-      .project-item a {
-        color: #3498db;
-        text-decoration: none;
-      }
-      .project-item a:hover {
-        text-decoration: underline;
-      }
-      #education {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 2rem;
-      }
-      #education h2 {
-        font-size: 2rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      .education-item {
-        margin-bottom: 1.2rem;
-      }
-      .education-item strong {
-        font-size: 1.2rem;
-        color: #333;
-      }
-      .education-item p {
-        font-size: 1rem;
-        color: #666;
-        line-height: 1.6;
-      }
-      .certifications {
-        margin-top: 1rem;
-      }
-      .certifications strong {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        display: block;
-        color: #333;
-      }
-      .certifications ul {
-        list-style: none;
-        padding-left: 0;
-      }
-      .certifications li {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 0.6rem;
-      }
-      #contact {
-        background-color: #ffffff;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 2rem;
-      }
-      #contact h2 {
-        font-size: 2rem;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-      .contact-info p {
-        font-size: 1.1rem;
-        color: #333;
-        margin-bottom: 1rem;
-      }
-      .contact-info a {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .contact-info a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="header-content">
-        <img src="profile.jpg" alt="Sachira Nuwanga" class="profile-img" />
-        <h1>Sachira Nuwanga</h1>
-        <p class="title">Senior Software Engineer</p>
-        <a
-          href="https://www.linkedin.com/in/sachira-nuwanga/"
-          target="_blank"
-          class="linkedin-link"
-        >
-          View my LinkedIn profile
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sachira Nuwanga — Senior Full Stack Software Engineer building production web platforms, cloud systems, and practical AI-powered applications." />
+  <title>Sachira Nuwanga — Senior Full Stack Software Engineer</title>
+  <style>
+    :root {
+      --bg: #f5f3ed;
+      --surface: #fffefa;
+      --ink: #111613;
+      --muted: #66706a;
+      --line: #d9ddd7;
+      --accent: #0b6b57;
+      --accent-soft: #e7f1ed;
+      --dark: #111613;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(11,107,87,.18), transparent 32%),
+        linear-gradient(135deg, #111613, #1c2722);
+      color: #fff;
+      padding: 72px 0 56px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr .9fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: .9rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b7d8cd;
+      font-weight: 700;
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #7ee0c2; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: .98; letter-spacing: -.05em; margin: 18px 0; max-width: 780px; }
+    .hero-copy { color: #cdd7d1; font-size: 1.12rem; max-width: 720px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .button {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 16px; border-radius: 999px; text-decoration: none; font-weight: 700;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .button.primary { background: #fff; color: var(--dark); border-color: #fff; }
+    .button.ghost { background: transparent; color: #fff; }
+    .hero-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .profile-img {
+      width: 160px; height: 160px; border-radius: 28px; object-fit: cover;
+      border: 1px solid rgba(255,255,255,.25); display: block; margin-bottom: 18px;
+    }
+    .hero-card h2 { margin: 0 0 4px; font-size: 1.4rem; }
+    .hero-card p { margin: 0 0 16px; color: #cdd7d1; }
+    nav {
+      background: #fffefa; border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 10;
+    }
+    nav .container { display: flex; gap: 24px; overflow-x: auto; padding: 14px 0; }
+    nav a { text-decoration: none; font-weight: 700; color: #49524d; white-space: nowrap; }
+    nav a:hover { color: var(--accent); }
+    section { padding: 72px 0; }
+    .section-heading { margin-bottom: 34px; }
+    .section-index { color: var(--accent); font-weight: 800; letter-spacing: .08em; font-size: .85rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.04em; margin: 8px 0 10px; line-height: 1.05; }
+    .section-heading p { color: var(--muted); max-width: 760px; margin: 0; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat, .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px;
+    }
+    .stat strong { display: block; font-size: 2.2rem; line-height: 1; }
+    .stat span { display: block; color: var(--muted); margin-top: 8px; }
+    .experience-grid, .case-grid, .project-grid, .skills-grid, .credential-grid { display: grid; gap: 18px; }
+    .experience-grid { grid-template-columns: repeat(2, 1fr); }
+    .case-grid { grid-template-columns: repeat(2, 1fr); }
+    .project-grid { grid-template-columns: repeat(3, 1fr); }
+    .skills-grid { grid-template-columns: repeat(3, 1fr); }
+    .credential-grid { grid-template-columns: repeat(2, 1fr); }
+    .card h3 { margin: 0 0 6px; font-size: 1.25rem; }
+    .meta { color: var(--accent); font-weight: 800; font-size: .9rem; }
+    .small { color: var(--muted); }
+    ul.clean { list-style: none; padding: 0; margin: 16px 0 0; }
+    ul.clean li { margin: 10px 0; }
+    ul.clean li::before { content: "→"; color: var(--accent); font-weight: 800; margin-right: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag { background: var(--accent-soft); color: #1e5f50; border-radius: 999px; padding: 5px 10px; font-size: .82rem; font-weight: 700; }
+    .project-link, .text-link { color: var(--accent); text-decoration: none; font-weight: 800; }
+    .project-link:hover, .text-link:hover { text-decoration: underline; }
+    .search-box {
+      background: var(--dark); color: white; border-radius: 24px; padding: 28px;
+    }
+    .search-box h3 { margin: 0 0 8px; font-size: 1.5rem; }
+    .search-box p { color: #cdd7d1; margin-top: 0; }
+    .search-link { display: inline-block; margin-top: 8px; color: #a9ead6; font-weight: 800; }
+    footer { background: var(--dark); color: white; padding: 44px 0; }
+    footer p { color: #b7c1bb; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin: 16px 0; }
+    .footer-links a { text-decoration: none; font-weight: 800; }
+    @media (max-width: 860px) {
+      .hero, .experience-grid, .case-grid, .project-grid, .skills-grid, .credential-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      header { padding-top: 48px; }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .stats { grid-template-columns: 1fr; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <div class="container hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Open to senior engineering opportunities</div>
+        <h1>Building systems that perform in production.</h1>
+        <p class="hero-copy">
+          Senior Full Stack Software Engineer with 6+ years of experience building production web platforms,
+          cloud infrastructure, scalable architecture, and practical AI-powered products.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://pyrecyter.com" target="_blank" rel="noreferrer">Visit my portfolio ↗</a>
+          <a class="button ghost" href="https://linkedin.com/in/sachira-nuwanga" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="button ghost" href="https://github.com/pyrecyter" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
       </div>
-    </header>
+      <aside class="hero-card">
+        <img src="profile.jpg" alt="Sachira Nuwanga" class="profile-img" />
+        <h2>Sachira Nuwanga</h2>
+        <p>Senior Full Stack Software Engineer · Sri Lanka</p>
+        <p>React.js · Next.js · Node.js · TypeScript · Azure · GCP · AI</p>
+      </aside>
+    </div>
+  </header>
 
-    <nav>
-      <a href="#profile">Profile</a>
+  <nav>
+    <div class="container">
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
+      <a href="#case-studies">Case Studies</a>
       <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#credentials">Credentials</a>
       <a href="#contact">Contact</a>
-    </nav>
+    </div>
+  </nav>
 
-    <section id="profile">
-      <h2>Professional Profile</h2>
-      <p>
-        I am a seasoned Frontend Software Engineer with a strong aptitude for
-        problem-solving. My expertise spans multiple technology stacks,
-        including React, Next Js, Flutter, and Node.js. I have extensive
-        hands-on experience with React and Next Js, having worked with it for
-        over six years. Additionally, I possess in-depth knowledge of cloud
-        platforms such as Azure DevOps, Google Cloud Platform (GCP), and
-        Firebase, which I frequently utilize in my projects. My professional
-        background encompasses a broad range of skills, from web and mobile
-        application development to server-side application development. My
-        passion for coding drives me to deliver excellence in every task I
-        undertake, ensuring high-quality results that meet and exceed
-        expectations.
-      </p>
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-index">00 · Profile</span>
+          <h2>Full stack engineering with a production mindset.</h2>
+          <p>
+            I build reliable digital platforms and practical AI-powered products across modern web architecture,
+            cloud infrastructure, developer tooling, and production observability.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>6+</strong><span>Years in software engineering</span></div>
+          <div class="stat"><strong>35%</strong><span>Delivery-time reduction from agentic AI tooling</span></div>
+          <div class="stat"><strong>25%</strong><span>Load-time reduction from an App Router migration</span></div>
+          <div class="stat"><strong>20 min</strong><span>Rebuild cycles eliminated with ISR</span></div>
+        </div>
+      </div>
     </section>
 
     <section id="experience">
-      <h2>Experience</h2>
-      <ul>
-        <li class="experience-item">
-          <strong class="experience-title"
-            >Fixico / Gapstars – Senior Software Engineer (Sep 2023 –
-            Present)</strong
-          ><br />
-          <ul>
-            <li>
-              &bull; Working on multiple Next.js applications related to vehicle
-              damage report creation and tracking.
-            </li>
-            <li>
-              &bull; Developed applications for various business processes such
-              as customer, garage, partner, and moderator.
-            </li>
-            <li>
-              &bull; Introduced Storybook and UI library to create and reuse
-              common components across applications.
-            </li>
-            <li>
-              &bull; Replaced old authentication flows and implemented NextAuth
-              for authentication using multiple providers.
-            </li>
-            <li>&bull; Utilized MUI as the main component library.</li>
-            <li>
-              &bull; Integrated Segment and Sentry for activity tracking and
-              monitoring.
-            </li>
-            <li>
-              &bull; Utilized GCP, Docker, and Kubernetes for deployment and
-              infrastructure.
-            </li>
-            <li>
-              &bull; Implemented CircleCI and ArgoCD for continuous integration
-              and deployment.
-            </li>
-          </ul>
-          <strong>Technologies:</strong> NextJs, GCP, Kubernetes, PHP Laravel,
-          SQL
-        </li>
-        <li class="experience-item">
-          <strong class="experience-title"
-            >Zone24x7 – Senior Software Engineer (Oct 2021 – Sep 2023)</strong
-          ><br />
-          <ul>
-            <li>
-              &bull; Worked on a React application for document management as a
-              frontend engineer.
-            </li>
-            <li>
-              &bull; Provided solutions with Proof of Concepts (POCs) to address
-              various issues.
-            </li>
-            <li>&bull; Contributed to CI/CD tasks on Azure DevOps.</li>
-            <li>
-              &bull; Used Ant Design component library with custom wrapped
-              styles.
-            </li>
-            <li>&bull; Employed Redux and RTK for state management.</li>
-            <li>
-              &bull; Worked with TypeScript as the primary language for React.
-            </li>
-            <li>
-              &bull; Utilized Jest, Enzyme, and React Testing Library for unit
-              testing.
-            </li>
-          </ul>
-          <strong>Technologies:</strong> Reactjs, Azure, .net, C#, SQL
-        </li>
-        <li class="experience-item">
-          <strong class="experience-title"
-            >IFS R&D International (Pvt) Ltd – Intern Software Engineer (Nov
-            2019 – Apr 2020)</strong
-          ><br />
-          <ul>
-            <li>&bull; Applied bug fixing and developed IFS Applications</li>
-            <li>&bull; Implemented user stories as part of Agile processes</li>
-          </ul>
-          <strong>Technologies:</strong> VB.net, C#, PLSQL
-        </li>
-        <li class="experience-item">
-          <strong class="experience-title"
-            >Amsafe Bridport – Software Developer (Nov 2018 – Feb 2019)</strong
-          ><br />
-          <ul>
-            <li>
-              &bull; Coordinated design, development, and implementation of
-              software applications according to user requirements
-            </li>
-            <li>
-              &bull; Implemented a new Intranet system for Amsafe Bridport
-              worldwide and developed applications in the intranet portal
-            </li>
-          </ul>
-          <strong>Technologies:</strong> VB.net, C#.net, JavaScript, SQL, SSRS,
-          HTML
-        </li>
-      </ul>
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-index">01 · Experience</span>
+          <h2>Production work, not just responsibilities.</h2>
+          <p>Selected engineering contributions across full stack platforms, cloud delivery, architecture, and AI.</p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="card">
+            <span class="meta">AKQA · Australia · Jul 2025 — Present</span>
+            <h3>Senior Full Stack Engineer</h3>
+            <p class="small">Production digital platforms, MACH architecture, headless content, cloud infrastructure, and AI experiences.</p>
+            <ul class="clean">
+              <li>Built production Generative AI features with LLMs, RAG, semantic search, and an agentic assistant.</li>
+              <li>Routed image/video generation across four model providers using Vercel AI Gateway with quota and cost handling.</li>
+              <li>Added Langfuse observability and automated LLM-as-judge image evaluation.</li>
+              <li>Implemented Azure Functions and APIM configurations with Terraform-managed infrastructure.</li>
+              <li>Migrated SSG to ISR with Contentful webhook revalidation and Next.js Draft Mode, eliminating 20-minute rebuild cycles.</li>
+            </ul>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">MACH</span><span class="tag">RAG</span><span class="tag">Azure</span><span class="tag">Terraform</span></div>
+          </article>
+
+          <article class="card">
+            <span class="meta">Fixico · Netherlands · Sep 2023 — Jul 2025</span>
+            <h3>Senior Software Engineer</h3>
+            <p class="small">Frontend modernization and production platform engineering for vehicle damage and repair workflows.</p>
+            <ul class="clean">
+              <li>Built Next.js applications with Redux Toolkit for customers, garages, partners, and moderators.</li>
+              <li>Completed a four-month App Router migration, reducing load times by approximately 25%.</li>
+              <li>Delivered a shared Storybook library of 20–30 reusable components.</li>
+              <li>Introduced LaunchDarkly for real-time feature flag management and controlled production rollouts.</li>
+              <li>Led migration to NextAuth.js across Next.js and Laravel and improved Sentry-based diagnostics.</li>
+            </ul>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">React.js</span><span class="tag">Redux Toolkit</span><span class="tag">LaunchDarkly</span><span class="tag">NextAuth.js</span></div>
+          </article>
+
+          <article class="card">
+            <span class="meta">Zone24x7 · Sri Lanka · Oct 2021 — Sep 2023</span>
+            <h3>Software Engineer / Senior Software Engineer</h3>
+            <p class="small">Enterprise frontend architecture, Python services, Azure delivery automation, POCs, and mentorship.</p>
+            <ul class="clean">
+              <li>Developed a React enterprise document management platform and established reusable frontend patterns.</li>
+              <li>Drove adoption of Bit.dev component libraries and Micro Frontends.</li>
+              <li>Developed Django and Flask backend services and integrated APIs.</li>
+              <li>Designed Azure DevOps environments and automated CI/CD pipelines.</li>
+              <li>Led technical POCs and mentored junior engineers.</li>
+            </ul>
+            <div class="tags"><span class="tag">React.js</span><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Flask</span><span class="tag">Azure DevOps</span></div>
+          </article>
+
+          <article class="card">
+            <span class="meta">IFS · Sri Lanka · Nov 2019 — Apr 2020</span>
+            <h3>Software Engineer Intern</h3>
+            <p class="small">Production enterprise application support and Agile delivery.</p>
+            <ul class="clean">
+              <li>Investigated production issues and implemented bug fixes.</li>
+              <li>Delivered user stories and collaborated with stakeholders to clarify requirements.</li>
+            </ul>
+            <div class="tags"><span class="tag">Enterprise software</span><span class="tag">Agile</span><span class="tag">Production support</span></div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills & Technologies</h2>
-      <div class="chip-category">
-        <span class="category-title">Frontend</span>
-        <div class="chip-container">
-          <span class="chip">React.js</span>
-          <span class="chip">Next.js</span>
-          <span class="chip">Flutter</span>
-          <span class="chip">HTML5</span>
-          <span class="chip">CSS3</span>
-          <span class="chip">Tailwind CSS</span>
-          <span class="chip">Redux</span>
-          <span class="chip">RTK</span>
+    <section id="case-studies">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-index">02 · Case studies</span>
+          <h2>Technical decisions with a reason behind them.</h2>
+          <p>Sanitized summaries of commercial work; no client-confidential details or private implementation data.</p>
         </div>
-      </div>
-
-      <div class="chip-category">
-        <span class="category-title">Backend</span>
-        <div class="chip-container">
-          <span class="chip">Node.js</span>
-          <span class="chip">Express.js</span>
-          <span class="chip">Firebase Functions</span>
-          <span class="chip">REST APIs</span>
-        </div>
-      </div>
-
-      <div class="chip-category">
-        <span class="category-title">Languages</span>
-        <div class="chip-container">
-          <span class="chip">TypeScript</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">Dart</span>
-          <span class="chip">Java</span>
-          <span class="chip">C#</span>
-          <span class="chip">Python</span>
-        </div>
-      </div>
-
-      <div class="chip-category">
-        <span class="category-title">Testing</span>
-        <div class="chip-container">
-          <span class="chip">Jest</span>
-          <span class="chip">React Testing Library</span>
-          <span class="chip">Cypress</span>
-        </div>
-      </div>
-
-      <div class="chip-category">
-        <span class="category-title">DevOps & Tools</span>
-        <div class="chip-container">
-          <span class="chip">Azure DevOps</span>
-          <span class="chip">CircleCI</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Kubernetes</span>
-          <span class="chip">GCP</span>
-          <span class="chip">Firebase</span>
-          <span class="chip">Git</span>
-          <span class="chip">GitHub Actions</span>
+        <div class="case-grid">
+          <article class="card"><span class="meta">Production AI</span><h3>Grounded AI search and agentic assistance</h3><p>Built LLM and RAG features with Algolia-backed semantic search and a content ingestion pipeline, grounding an agentic assistant in retrieved content.</p><div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Algolia</span><span class="tag">Next.js</span></div></article>
+          <article class="card"><span class="meta">Production AI</span><h3>Observable multi-model generation</h3><p>Routed image and video generation across Google, OpenAI, Black Forest Labs, and Recraft through Vercel AI Gateway, with quota, cost, tracing, and evaluation.</p><div class="tags"><span class="tag">Vercel AI Gateway</span><span class="tag">Langfuse</span><span class="tag">LLM evaluation</span></div></article>
+          <article class="card"><span class="meta">Web platform</span><h3>Faster headless content delivery</h3><p>Migrated SSG to ISR with Contentful webhook revalidation and Next.js Draft Mode, eliminating 20-minute rebuild waits for content changes.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">ISR</span><span class="tag">Contentful</span></div></article>
+          <article class="card"><span class="meta">Cloud engineering</span><h3>Versioned Azure API infrastructure</h3><p>Implemented Azure Functions and APIM configurations while provisioning supporting infrastructure with Terraform.</p><div class="tags"><span class="tag">Azure Functions</span><span class="tag">APIM</span><span class="tag">Terraform</span></div></article>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <div class="project-item">
-          <strong>Beautesoft CRM</strong>
-          <p>
-            Complete CRM solution for beauty salons, built with React, Firebase,
-            and Flutter for mobile.
-          </p>
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-index">03 · Selected projects</span>
+          <h2>Personal builds and deployed experiments.</h2>
+          <p>Public and personal projects spanning full-stack applications, integrations, games, mobile development, and production web experiences.</p>
         </div>
-        <div class="project-item">
-          <strong>File and Event Manager</strong>
-          <p>
-            Event logging and file organization utility –
-            <a
-              href="https://github.com/pyrecyter/File-and-Drive-Manager"
-              target="_blank"
-              >GitHub</a
-            >
-          </p>
+        <div class="project-grid">
+          <article class="card"><span class="meta">AI portfolio</span><h3>AI-powered professional portfolio</h3><p>This portfolio combines verified experience, curated GitHub projects, case studies, and grounded AI search for recruiter Q&amp;A.</p><a class="project-link" href="https://github.com/pyrecyter/sachira-portfolio" target="_blank" rel="noreferrer">View source ↗</a><div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">AI</span><span class="tag">Vercel</span></div></article>
+
+          <article class="card"><span class="meta">Multiplayer</span><h3>Real-time Multiplayer Shooter</h3><p>Room-based top-down shooter with synchronized gameplay, projectile combat, health state, collision handling, and a deployed demo.</p><a class="project-link" href="https://shooter-game-49f0b.web.app/test-room" target="_blank" rel="noreferrer">Live demo ↗</a><div class="tags"><span class="tag">React</span><span class="tag">PixiJS</span><span class="tag">Firebase Realtime Database</span></div></article>
+
+          <article class="card"><span class="meta">Games</span><h3>Custom Multiplayer Snake &amp; Ladder</h3><p>Configurable room-based multiplayer board game with a shareable link, custom board size, snakes, and ladders.</p><a class="project-link" href="https://snake-and-ladder-c142e.web.app" target="_blank" rel="noreferrer">Live demo ↗</a><div class="tags"><span class="tag">React</span><span class="tag">Firebase</span><span class="tag">Firestore</span></div></article>
+
+          <article class="card"><span class="meta">Full stack</span><h3>Beginner MERN Teaching Platform</h3><p>Practical store-management application covering authentication, permissions, products, stock, sales, and reports.</p><a class="project-link" href="https://github.com/pyrecyter/MERN-APP-FRONTEND" target="_blank" rel="noreferrer">Frontend repo ↗</a><div class="tags"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Express</span><span class="tag">MongoDB</span></div></article>
+
+          <article class="card"><span class="meta">Integrations</span><h3>Google File &amp; Event Manager</h3><p>Google OAuth application for Drive file operations and Calendar event creation.</p><a class="project-link" href="https://github.com/pyrecyter/File-and-Drive-Manager" target="_blank" rel="noreferrer">GitHub ↗</a><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Google OAuth</span><span class="tag">Firebase</span></div></article>
+
+          <article class="card"><span class="meta">Mobile</span><h3>Locus Location Reminder</h3><p>Flutter app that triggers a reminder when a user enters a configured stop radius.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">GPS</span><span class="tag">SQLite</span></div></article>
+
+          <article class="card"><span class="meta">Mobile</span><h3>MediBuzz Medicine Reminder</h3><p>Flutter application with profiles, scheduled local notifications, and on-device persistence.</p><a class="project-link" href="https://github.com/pyrecyter/Medibuzz" target="_blank" rel="noreferrer">GitHub ↗</a><div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">SQLite</span></div></article>
+
+          <article class="card"><span class="meta">Web + Android</span><h3>Online Tic-Tac-Toe</h3><p>Two-player game with a React web deployment and Firebase-backed Android implementation.</p><a class="project-link" href="https://github.com/pyrecyter/TicTakToe-Online" target="_blank" rel="noreferrer">GitHub ↗</a><div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Firebase</span><span class="tag">Java</span></div></article>
+
+          <article class="card"><span class="meta">Personal product</span><h3>Personalized Wedding RSVP</h3><p>Production website with guest-specific invitation URLs, RSVP capture, countdowns, and calendar actions.</p><a class="project-link" href="https://wedding.pyrecyter.com" target="_blank" rel="noreferrer">Live site ↗</a><div class="tags"><span class="tag">Next.js</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Vercel</span></div></article>
         </div>
-        <div class="project-item">
-          <strong>Medibuzz</strong>
-          <p>
-            A medicine reminder app with scheduling and notification –
-            <a href="https://github.com/pyrecyter/Medibuzz" target="_blank"
-              >GitHub</a
-            >
-          </p>
+        <p style="margin-top:24px"><a class="text-link" href="https://github.com/pyrecyter?tab=repositories" target="_blank" rel="noreferrer">View all public repositories →</a></p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-index">04 · Capability map</span>
+          <h2>Broad enough to connect the system. Deep where it matters.</h2>
         </div>
-        <div class="project-item">
-          <strong>Vehicle Damage Reporting System</strong>
-          <p>Internal reporting tool for auto repair shops.</p>
-        </div>
-        <div class="project-item">
-          <strong>Locus</strong>
-          <p>Location-based task reminder built with Flutter.</p>
-        </div>
-        <div class="project-item">
-          <strong>Online Air Tickets Reservation System</strong>
-          <p>Developed a website for online air ticket reservations.</p>
-        </div>
-        <div class="project-item">
-          <strong>Online Computer Store</strong>
-          <p>Web application for an online computer store.</p>
-        </div>
-        <div class="project-item">
-          <strong>Android Game "Convita"</strong>
-          <p>Android game developed using Android Studio.</p>
+        <div class="skills-grid">
+          <article class="card"><h3>Core</h3><p class="small">TypeScript, JavaScript, Python, PHP, Dart, React.js, Next.js, Node.js, Express.js, Laravel, Django, Flask, Flutter, .NET, Redux, Redux Toolkit, NextAuth.js, Storybook, Ant Design, Tailwind CSS, Material UI</p></article>
+          <article class="card"><h3>Architecture</h3><p class="small">MACH, MERN, Micro Frontends, Design Systems, Headless CMS, Monorepos, SSR, SSG, ISR, Server Actions</p></article>
+          <article class="card"><h3>Cloud &amp; delivery</h3><p class="small">Azure, GCP, Vercel, Cloudflare, Docker, Kubernetes, Terraform, CI/CD, Firebase, GitHub Actions, LaunchDarkly</p></article>
+          <article class="card"><h3>Production AI</h3><p class="small">LLM applications, RAG, semantic search, agentic AI, AI-powered recommendations, prompt engineering, Vercel AI Gateway, Langfuse, LLM observability, LLM evaluation</p></article>
+          <article class="card"><h3>Backend &amp; data</h3><p class="small">REST APIs, Azure Functions, APIM, SQL, NoSQL, MongoDB, Algolia, Contentful, Contentstack, Commercetools</p></article>
+          <article class="card"><h3>Engineering practice</h3><p class="small">Automated testing, Sentry, Source Maps, OAuth 2.0, JWT, Okta, IAM, authentication and authorization, Agile delivery, Jira, Bitbucket, Confluence, mentoring</p></article>
         </div>
       </div>
     </section>
 
-    <section id="education">
-      <h2>Education & Certifications</h2>
-      <div class="education-item">
-        <strong>Sri Sumangala College</strong>
-        <p>Completed O/Ls and A/L with Maths Stream</p>
-      </div>
-      <div class="education-item">
-        <strong
-          >Sri Lanka Institute of Information Technology (SLIIT)
-          (2017–2021)</strong
-        >
-        <p>
-          B.Sc. (Hons) in Information Technology – Specialization in Software
-          Engineering
-        </p>
-      </div>
-      <div class="certifications">
-        <strong>Certifications & Awards:</strong>
-        <ul>
-          <li>&bull; Silver Award – SLIIT Codefest 2019</li>
-          <li>&bull; Dean's List Award – Final Year</li>
-        </ul>
+    <section id="credentials">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-index">05 · Credentials</span>
+          <h2>Education, recognition, research, and mentorship.</h2>
+        </div>
+        <div class="credential-grid">
+          <article class="card"><span class="meta">Education</span><h3>B.Sc. (Hons) in Information Technology</h3><p>Specialization in Software Engineering · Sri Lanka Institute of Information Technology (SLIIT) · January 2021</p></article>
+          <article class="card"><span class="meta">Awards</span><h3>Dean's List Award</h3><p>SLIIT · 2021</p><h3>Codefest Silver Award</h3><p>SLIIT · 2019</p></article>
+          <article class="card"><span class="meta">Publication</span><h3>Sustainable Manufacturing: Application of Optimization to Textile Manufacturing Plants</h3><p>Research applying Python, machine learning, and optimization methods to textile manufacturing.</p><a class="project-link" href="https://globaljournals.org/GJCST_Volume20/2-Sustainable-Manufacturing-Application.pdf" target="_blank" rel="noreferrer">Read publication ↗</a></article>
+          <article class="card"><span class="meta">Teaching &amp; mentorship</span><h3>End-to-end MERN stack education</h3><p>Proacademy · Taught MongoDB, Express.js, React.js, and Node.js as a complete application development workflow.</p><h3>Engineering mentorship</h3><p>Mentored junior engineers on frontend development and reusable component practices.</p></article>
+        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:sachiranuwanga123@gmail.com"
-            >sachiranuwanga123@gmail.com</a
-          >
-        </p>
-        <p>
-          <strong>GitHub:</strong>
-          <a href="https://github.com/pyrecyter" target="_blank">pyrecyter</a>
-        </p>
-        <p>
-          <strong>LinkedIn:</strong>
-          <a href="https://www.linkedin.com/in/sachira-nuwanga/" target="_blank"
-            >LinkedIn Profile</a
-          >
-        </p>
+    <section>
+      <div class="container">
+        <div class="search-box">
+          <h3>Want the deeper version?</h3>
+          <p>The main portfolio includes recruiter-focused search and a grounded AI assistant covering experience, projects, skills, case studies, and credentials.</p>
+          <a class="search-link" href="https://pyrecyter.com/#ask" target="_blank" rel="noreferrer">Ask the portfolio AI →</a>
+        </div>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <p>&copy; 2025 Sachira Nuwanga</p>
-    </footer>
-  </body>
+  <footer id="contact">
+    <div class="container">
+      <h2>Let's build something useful.</h2>
+      <p>Senior Full Stack Software Engineer · Sri Lanka</p>
+      <div class="footer-links">
+        <a href="https://pyrecyter.com" target="_blank" rel="noreferrer">Portfolio</a>
+        <a href="mailto:sachiranuwanga123@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/sachira-nuwanga" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/pyrecyter" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <p>© 2026 Sachira Nuwanga</p>
+    </div>
+  </footer>
+</body>
 </html>
